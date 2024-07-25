@@ -1,0 +1,79 @@
+.challengeContainer{
+    margin: 2rem;
+    margin-top: 1rem;
+    flex:1;
+    background: linear-gradient(rgb(4, 255, 221) , rgb(142, 213, 247));
+    padding: 2rem;
+    min-width: 200px;
+    max-width: 280px;
+    min-height: 200px;
+    max-height: 230px;
+    border-radius: 5px;
+    font-family: 'Quicksand';
+    
+}
+
+
+.boxContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+}
+
+.boxContainer p:first-child{
+    font-weight: bold;
+    font-size: 1.2em;
+    color: rgb(52, 51, 51);
+    ;
+}
+
+.boxContainer p:nth-child(2){
+    margin-top: -1.5rem;
+    border: solid 0.5px rgba(0, 0, 0, 0.212);
+    padding: 0.25rem;
+    font-size: 0.85em;
+    border-radius: 5px;
+}
+
+.boxContainer p:nth-child(4){
+    margin-top: -0.7rem;
+}
+
+.boxContainer button{
+    outline: none;
+    border: none;
+    background-color: rgb(52, 51, 51);
+    color: white;
+    padding: 0.6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 4px;
+}
+
+.boxContainer button:hover{
+    background-color:rgba(38, 38, 38, 0.821); 
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+.active{
+    animation: blinking 1s infinite
+}
+
+
+@keyframes blinking {
+    0%, 100%{
+        opacity: 1;
+    }
+
+    50%{
+        opacity: 0;
+    }
+}

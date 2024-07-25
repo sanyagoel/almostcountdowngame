@@ -1,0 +1,66 @@
+.dialogContainer{
+    justify-self: center;
+    max-width: 330px;
+    width: 330px;
+    height: 174px;
+    border: none;
+    outline: none;
+    margin-top: 3rem;
+    border-radius: 10px;
+    background-color: rgba(245, 245, 249, 0.975);
+
+}
+
+.dialogContainer::backdrop{
+    background-color: rgba(0, 0, 0, 0.534);
+}
+
+.dialogminiContainer{
+    font-size: 0.9em;
+    border-radius: 10px;
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+
+font-family: 'Quicksand';
+
+}
+
+.dialogminiContainer p{
+    padding-left: 1.5rem;
+}
+
+.dialogminiContainer p:first-child{
+    padding-top: 1.5rem;
+    font-family: 'Handjet';
+    font-weight: 900;
+    font-size: 2.5em;
+    margin-bottom: 0.5rem;
+}
+
+.dialogminiContainer form{
+    align-self: flex-end;
+}
+
+.dialogminiContainer strong{
+    color: rgb(9, 118, 101);
+}
+
+.dialogminiContainer form button{
+    border: none;
+    outline: none;
+    background-color: rgb(43, 42, 42);
+    color: white;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    padding: 0.4rem;
+    padding-left: 0.76rem;
+    padding-right: 0.76rem;
+    border-radius: 6px;
+}
+
+.dialogminiContainer form button:hover{
+    background-color: black;
+    cursor: pointer;
+}
