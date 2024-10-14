@@ -2,31 +2,50 @@ import './TimerChallenge.css'
 import Resultmodel from './ResultModel';
 
 import { useState,useRef } from 'react'
+import { createPortal } from 'react-dom';
 
 export default function TimerChallenge({ title, targetTime }) {
     const timer = useRef();
-    const [timerStarted,setTimerStarted] = useState(false);
+    // const [timerStarted,setTimerStarted] = useState(false);
     // const [timerExpired, setTimerExpired] = useState(false);
+    const [remainingTime,setremainingTime] = useState(targetTime*1000);
     const dialog = useRef();
 
+    if(remainingTime<=0){
+        clearInterval(timer.current);
+        dialog.current.open();
+    }
+
+    const timerStarted = remainingTime > 0 && remainingTime < targetTime*1000;
+
+    function setRemaining(){
+        setremainingTime(targetTime*1000);
+    }
+
     function handleStart(){
-       timer.current =  setTimeout(()=>{
+       timer.current =  setInterval(()=>{
             // setTimerExpired(true);
-            setTimerStarted(false);
-            dialog.current.open();
-        },targetTime*1000)
-        setTimerStarted(true);
+            // setTimerStarted(false);
+            // dialog.current.open();
+            setremainingTime((previousTime)=>{
+                return previousTime - 10;
+            })
+        },10)
+        // setTimerStarted(true);
     }
 
     function handleStop(){
-        clearTimeout(timer.current);
-        setTimerStarted(false);
+        clearInterval(timer.current);
+        dialog.current.open();
+
+        // setTimerStarted(false);
         // setTimerExpired(false);
     }
 
 
-    return (<>        
-    <Resultmodel ref={dialog} targetTime={targetTime} result="LOST"/>
+    return (<>     
+       
+    <Resultmodel ref={dialog} remainingTime={remainingTime} targetTime={targetTime} onSelect={setRemaining}/>
         <div className="challengeContainer">
 
             <div className="boxContainer">
@@ -37,5 +56,6 @@ export default function TimerChallenge({ title, targetTime }) {
             </div>
         </div>
         </>
+        // , document.getElementById('model')
     )
 }
